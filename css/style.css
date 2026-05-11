@@ -2,21 +2,59 @@ body{
     background-color: rgb(54, 52, 52);
     margin: 0px;
     padding: 0px;
+    position: relative;
+}
+.icon{
+    color: white;
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
 }
 .wrapper{
     display: flex;
+    flex-direction: row;
+}
+.main{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 70vw;
     height: 100vh;
+    position: relative;
+}
+.shop{
+    height: 100vh;
+    width: 30vw;
+    background-color: rgb(40, 38, 38);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 .Dumplings{
-    scale: 10%;
+    scale: 6%;
     transition: 0.3s all ease-in-out;
     pointer-events: visiblePainted;
     visibility: visible;
 }
 .Dumplings:hover{
-    scale: 11%;
+    scale: 8%;
     cursor: pointer;
+}
+.Dumplings.clicked{
+    scale: 7%;
+}
+.count{
+    color: white;
+    position: absolute;
+    top: 6vh;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
 }
