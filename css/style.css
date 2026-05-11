@@ -1,3 +1,22 @@
 body{
-    background-color: black;
+    background-color: rgb(54, 52, 52);
+    margin: 0px;
+    padding: 0px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.Dumplings{
+    scale: 10%;
+    transition: 0.3s all ease-in-out;
+    pointer-events: visiblePainted;
+    visibility: visible;
+}
+.Dumplings:hover{
+    scale: 11%;
+    cursor: pointer;
 }
