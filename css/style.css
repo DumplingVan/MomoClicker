@@ -102,8 +102,14 @@ body{
     margin-top: 1vh;
     background-color: rgb(61, 58, 58);
     border-radius: 30px;
-    display: flex;
+    display: none;
     align-items: center;
+}
+.box.show{
+    display: flex;
+}
+.box:hover{
+    cursor: pointer;
 }
 .itemname{
     color: white;

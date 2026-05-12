@@ -7,7 +7,7 @@ const displayCursor = document.getElementById("cursorprice");
 const displaySteamer = document.getElementById("steamerprice");
 
 let clicks = 0;
-let shopProg = 1;
+let shopProg = 0;
 let cursors = 0;
 let cursorPrice = 5;
 let steamers = 0;
@@ -42,8 +42,8 @@ cursorPurchase.addEventListener("click", () => {
         //placeholder
     };
 
-    if (shopProg == 0) {
-        shopProg = 1;
+    if (shopProg == 1) {
+        shopUpdate();
     };
 });
 
@@ -59,8 +59,8 @@ steamerPurchase.addEventListener("click", () => {
         //placeholder
     };
     
-    if (shopProg == 1) {
-        shopProg = 2;
+    if (shopProg == 2) {
+        shopUpdate();
     };
 });
 
@@ -78,10 +78,28 @@ function PriceUpdate() {
 
     displayCursor.textContent = "$" + String(cursorPrice);
     displaySteamer.textContent = "$" + String(steamerPrice);
-}
+};
+
+function shopUpdate() {
+    shopProg += 1;
+
+    if (shopProg == 1) {
+        cursorPurchase.classList.add("show")
+    }
+    else if (shopProg == 2) {
+        steamerPurchase.classList.add("show")
+    }
+    else if (shopProg == 3) {
+
+    }
+    else if (shopProg == 4) {
+        
+    }
+};
 
 counter.textContent = `Dumplings: ${clicks}`;
 console.log("script successfully loaded.");
 
 setInt = setInterval(addDumplings, 1000);
 PriceUpdate();
+shopUpdate();
