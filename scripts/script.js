@@ -12,16 +12,17 @@ const displayFried = document.getElementById("friedprice");
 
 let clicks = 0;
 let shopProg = 1;
+let Dpersec = 0;
 
 class Item {
     static allItems = [];
 
-    constructor(element, priceDisplay, Name, Price, amount, Prog) {
+    constructor(element, priceDisplay, Name, Price, Value, Prog) {
         this.element = element;
         this.priceDisplay = priceDisplay;
         this.Name = Name;
         this.Price = Price;
-        this.amount = amount;
+        this.Value = Value;
         this.Prog = Prog;
 
         Item.allItems.push(this);
@@ -34,7 +35,8 @@ class Item {
             clicks -= this.Price;
             this.Price = Math.floor(this.Price * 1.5);
             this.priceDisplay.textContent = `$${this.Price}`
-            
+            Dpersec += this.Value;
+
             CountUpdate()
         }
         else{
@@ -43,6 +45,7 @@ class Item {
 
         if (this.Prog == shopProg) {
             shopProg += 1;
+
             Item.allItems.forEach(items => items.shopUpdate());
         }
     }
@@ -69,23 +72,20 @@ Momo.addEventListener("click", () => {
 });
 
 function addDumplings() {
-    let add = Cursors.amount + Steamers.amount * 10 + Factories.amount * 50;
-    console.log(add);
-
-    clicks += add;
+    clicks += Dpersec;
     CountUpdate()
 };
 
 function CountUpdate (){
     counter.textContent = `Dumplings: ${clicks}`;
-    persec.textContent = `${Cursors.amount + Steamers.amount * 10 + Factories.amount * 50} Dumplings / per sec`;
+    persec.textContent = `${Dpersec} Dumplings / per sec`;
 }
 
 console.log("script successfully loaded.");
-let Cursors = new Item(cursorPurchase, displayCursor, "Cursor", 5, 0, 1);
-let Steamers = new Item(steamerPurchase, displaySteamer, "Steamer", 50, 0, 2);
-let Factories = new Item(factoryPurchase, displayFactory, "Factory", 500, 0, 3);
-let FriedMomos = new Item(friedPurchase, displayFried, "Fried Momos", 10000, 0, 4);
+let Cursors = new Item(cursorPurchase, displayCursor, "Cursor", 5, 1, 1);
+let Steamers = new Item(steamerPurchase, displaySteamer, "Steamer", 50, 10, 2);
+let Factories = new Item(factoryPurchase, displayFactory, "Factory", 500, 50, 3);
+let FriedMomos = new Item(friedPurchase, displayFried, "Fried Momos", 10000, 1000, 4);
 
 counter.textContent = `Dumplings: ${clicks}`;
 cursorPurchase.classList.add("show")
