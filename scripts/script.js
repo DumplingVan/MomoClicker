@@ -15,6 +15,7 @@ const displayProf = document.getElementById("profprice");
 let clicks = 0;
 let shopProg = 1;
 let Dpersec = 0;
+let hover = 0;
 
 class Item {
     static allItems = [];
@@ -70,6 +71,23 @@ Momo.addEventListener("click", () => {
     }, 50);
     
     Momo.style.transition = "0.3s";
+});
+
+Momo.addEventListener("mouseover", () => {
+    console.log("hover")
+    hover = 1;
+});
+
+Momo.addEventListener("mouseout", () => {
+    hover = 0;
+});
+
+document.addEventListener("mousemove", () => {
+    if (hover == 1) {
+        let hoverx = event.clientX - ((window.innerWidth * 0.7 - Momo.getBoundingClientRect().width) / 2);
+        let hovery = event.clientY - ((window.innerHeight - Momo.getBoundingClientRect().height) / 2);
+        console.log(`(${hoverx}, ${hovery})`)
+    };
 });
 
 function addDumplings() {

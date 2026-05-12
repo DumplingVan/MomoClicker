@@ -43,10 +43,12 @@ body{
     transition: 0.3s all ease-in-out;
     user-select: none;
 }
+/*
 .Dumplings:hover{
     scale: 8%;
     cursor: pointer;
 }
+*/
 .Dumplings.clicked{
     scale: 7%;
 }
