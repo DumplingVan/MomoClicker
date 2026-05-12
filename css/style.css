@@ -43,13 +43,13 @@ body{
     transition: 0.3s all ease-in-out;
     user-select: none;
 }
-/*
-.Dumplings:hover{
+.Dumplings.active:hover{
+    transition: 0.3s all ease-in-out;
     scale: 8%;
     cursor: pointer;
 }
-*/
-.Dumplings.clicked{
+.Dumplings.active.clicked{
+    transition: 0.05s all ease-in-out;
     scale: 7%;
 }
 .count{
@@ -136,4 +136,7 @@ body{
     font-size: 25px;
     position: absolute;
     right: 1vw;
+}
+#Canvas{
+    display: none;
 }
