@@ -2,13 +2,15 @@ const Momo = document.querySelector(".Dumplings");
 const counter = document.querySelector(".count");
 const persec = document.querySelector(".persec");
 const cursorPurchase = document.getElementById("Cursor");
-const steamerPurchase = document.getElementById("Steamer");
-const factoryPurchase = document.getElementById("Dumpling-factory");
-const friedPurchase = document.getElementById("Fried-Dumplings");
 const displayCursor = document.getElementById("cursorprice");
+const steamerPurchase = document.getElementById("Steamer");
 const displaySteamer = document.getElementById("steamerprice");
+const factoryPurchase = document.getElementById("Dumpling-factory");
 const displayFactory = document.getElementById("factoryprice");
+const friedPurchase = document.getElementById("Fried-Dumplings");
 const displayFried = document.getElementById("friedprice");
+const profPurchase = document.getElementById("ProfessionalChef");
+const displayProf = document.getElementById("profprice");
 
 let clicks = 0;
 let shopProg = 1;
@@ -17,10 +19,9 @@ let Dpersec = 0;
 class Item {
     static allItems = [];
 
-    constructor(element, priceDisplay, Name, Price, Value, Prog) {
+    constructor(element, priceDisplay, Price, Value, Prog) {
         this.element = element;
         this.priceDisplay = priceDisplay;
-        this.Name = Name;
         this.Price = Price;
         this.Value = Value;
         this.Prog = Prog;
@@ -37,17 +38,17 @@ class Item {
             this.priceDisplay.textContent = `$${this.Price}`
             Dpersec += this.Value;
 
+            if (this.Prog == shopProg) {
+                shopProg += 1;
+
+                Item.allItems.forEach(items => items.shopUpdate());
+            }
+
             CountUpdate()
         }
         else{
             //placeholder
         };
-
-        if (this.Prog == shopProg) {
-            shopProg += 1;
-
-            Item.allItems.forEach(items => items.shopUpdate());
-        }
     }
     shopUpdate() {
         if (shopProg == this.Prog) {
@@ -82,10 +83,11 @@ function CountUpdate (){
 }
 
 console.log("script successfully loaded.");
-let Cursors = new Item(cursorPurchase, displayCursor, "Cursor", 5, 1, 1);
-let Steamers = new Item(steamerPurchase, displaySteamer, "Steamer", 50, 10, 2);
-let Factories = new Item(factoryPurchase, displayFactory, "Factory", 500, 50, 3);
-let FriedMomos = new Item(friedPurchase, displayFried, "Fried Momos", 10000, 1000, 4);
+let Cursors = new Item(cursorPurchase, displayCursor, 5, 1, 1);
+let Steamers = new Item(steamerPurchase, displaySteamer, 50, 10, 2);
+let Factories = new Item(factoryPurchase, displayFactory, 500, 50, 3);
+let FriedMomos = new Item(friedPurchase, displayFried, 10000, 1000, 4);
+let ProfChefs = new Item(profPurchase, displayProf, 500000, 5000, 5);
 
 counter.textContent = `Dumplings: ${clicks}`;
 cursorPurchase.classList.add("show")

@@ -88,6 +88,7 @@ body{
     font-style: normal;
     font-size: 20px;
     margin-top: 2vh;
+    user-select: none;
 }
 .boxes{
     display: flex;
@@ -106,6 +107,7 @@ body{
     align-items: center;
     transition: 0.3s all ease-in-out;
     position: relative;
+    user-select: none;
 }
 .box.show{
     display: flex;
