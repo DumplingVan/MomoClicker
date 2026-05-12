@@ -30,6 +30,7 @@ let clicks = 0;
 let shopProg = 1;
 let Dpersec = 0;
 let hover = 0;
+let onMomo = 0;
 
 class Item {
     static allItems = [];
@@ -73,17 +74,19 @@ class Item {
 }
 
 Momo.addEventListener("click", () => {
-    clicks += 1;
-    console.log(`Clicked, counter: ${clicks}`);
-    CountUpdate()
-    
-    Momo.classList.add("clicked")
+    if (onMomo == 1) {
+        clicks += 1;
+        console.log(`Clicked, counter: ${clicks}`);
+        CountUpdate()
+        
+        Momo.classList.add("clicked")
 
-    setTimeout(() => {
-        Momo.classList.remove("clicked")
-    }, 50);
-    
-    Momo.style.transition = "0.3s";
+        setTimeout(() => {
+            Momo.classList.remove("clicked")
+        }, 50);
+        
+        Momo.style.transition = "0.3s";
+    };
 });
 
 Momo.addEventListener("mouseover", () => {
@@ -108,9 +111,11 @@ document.addEventListener("mousemove", () => {
         const pixel = Momocanvas.getImageData(canvasX, canvasY, 1, 1).data;
         const alpha = pixel[3];
         if (alpha != 0){
+            onMomo = 1;
             Momo.classList.add("active")
         }
         else{
+            onMomo = 0;
             Momo.classList.remove("active")
         };
     };
