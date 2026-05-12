@@ -104,12 +104,15 @@ body{
     border-radius: 30px;
     display: none;
     align-items: center;
+    transition: 0.3s all ease-in-out;
+    position: relative;
 }
 .box.show{
     display: flex;
 }
 .box:hover{
     cursor: pointer;
+    scale: 1.05;
 }
 .itemname{
     color: white;
@@ -128,5 +131,5 @@ body{
     font-style: normal;
     font-size: 25px;
     position: absolute;
-    right: 2vw;
+    right: 1vw;
 }
