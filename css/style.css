@@ -34,12 +34,14 @@ body{
     background-color: rgb(40, 38, 38);
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .Dumplings{
     scale: 6%;
     transition: 0.3s all ease-in-out;
-    pointer-events: visiblePainted;
-    visibility: visible;
+    user-select: none;
 }
 .Dumplings:hover{
     scale: 8%;
@@ -50,11 +52,75 @@ body{
 }
 .count{
     color: white;
-    position: absolute;
-    top: 6vh;
     font-family: "Outfit", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
     font-size: 20px;
+}
+.persec{
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
+    position: absolute;
+    top: 10vh;
+}
+.countbox{
+    background-color: rgb(61, 58, 58);
+    border-radius: 4px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 6vh;
+    padding-bottom: .5vh;
+    padding-top: .5vh;
+    padding-right: .6vw;
+    padding-left: .6vw;
+}
+.shoptext{
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 20px;
+    margin-top: 2vh;
+}
+.boxes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.box{
+    width: 90%;
+    height: 6%;
+    margin-top: 1vh;
+    background-color: rgb(61, 58, 58);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+.itemname{
+    color: white;
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 25px;
+    margin-left: 1vw;
+}
+.price{
+    color: rgb(0, 183, 0);
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 25px;
+    position: absolute;
+    right: 2vw;
 }
